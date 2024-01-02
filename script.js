@@ -46,7 +46,9 @@ function togglePlay(){
 function playMusic(){
     isPlaying = true;
 
+    //Change play button icon
     playBtn.classList.replace('fa-play', 'fa-pause');
+    //Set button hover title
     playBtn.setAttribute('title', 'pause');
     music.play();
 }
@@ -54,7 +56,9 @@ function playMusic(){
 function pauseMusic(){
     isPlaying = false;
 
+    //Change pause button icon
     playBtn.classList.replace('fa-pause', 'fa-play');
+    //Set button hover title
     playBtn.setAttribute('title', 'play');
     music.pause();
 }
