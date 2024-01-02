@@ -75,3 +75,13 @@ function changeMusic(direction){
     loadMusic(songs[musicIndex]);
     playMusic();
 }
+
+function updateProgressBar(){
+    const { duration, currentTime } = music;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = '$(progressPercent)%';
+
+    const formatTime = (time) => String(Math.flooe(time)).padStart(2, '0');
+    durationEl.textContent = '${duration / 60}:${formatTime(duration % 60)}';
+    currentTimeEl.textContent = '${currentTime / 60}:${formatTime(currentTime % 60)}}';
+}
