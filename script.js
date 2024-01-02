@@ -62,3 +62,16 @@ function pauseMusic(){
     playBtn.setAttribute('title', 'play');
     music.pause();
 }
+
+function loadMusic(song){
+    music.src = song.path;
+    title.textContent = song.displayName;
+    artist.textContent = song.artist;
+    image.src = song.cover;
+}
+
+function changeMusic(direction){
+    musicIndex = (musicIndex + direction + songs.length) % songs.length;
+    loadMusic(songs[musicIndex]);
+    playMusic();
+}
