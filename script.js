@@ -49,7 +49,7 @@ function playMusic(){
     //Change play button icon
     playBtn.classList.replace('fa-play', 'fa-pause');
     //Set button hover title
-    playBtn.setAttribute('title', 'pause');
+    playBtn.setAttribute('title', 'Pause');
     music.play();
 }
 
@@ -59,7 +59,7 @@ function pauseMusic(){
     //Change pause button icon
     playBtn.classList.replace('fa-pause', 'fa-play');
     //Set button hover title
-    playBtn.setAttribute('title', 'play');
+    playBtn.setAttribute('title', 'Play');
     music.pause();
 }
 
@@ -68,6 +68,7 @@ function loadMusic(song){
     title.textContent = song.displayName;
     artist.textContent = song.artist;
     image.src = song.cover;
+    background.src = song.cover;
 }
 
 function changeMusic(direction){
@@ -81,12 +82,18 @@ function updateProgressBar(){
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = '$(progressPercent)%';
 
-    const formatTime = (time) => String(Math.flooe(time)).padStart(2, '0');
-    durationEl.textContent = '${duration / 60}:${formatTime(duration % 60)}';
-    currentTimeEl.textContent = '${currentTime / 60}:${formatTime(currentTime % 60)}}';
+    const formatTime = (time) => String(Math.floor(time)).padStart(2, '0');
+    durationEl.textContent = `${formatTime(duration / 60)}:${formatTime(duration % 60)}`;
+    currentTimeEl.textContent = `${formatTime(currentTime / 60)}:${formatTime(currentTime % 60)}`;
 }
 
-function setProgressBar (e){
+//function setProgressBar (e){
+//    const width = playerProgress.clientWidth;
+//    const clickX = e.offsetX;
+//    music.currentTime = (clickX / width) * music.duration;
+//}
+
+function setProgressBar(e) {
     const width = playerProgress.clientWidth;
     const clickX = e.offsetX;
     music.currentTime = (clickX / width) * music.duration;
