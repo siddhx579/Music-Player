@@ -131,3 +131,12 @@ h3{
     user-select: none;
     transition: all 0.3s ease;
 }
+.fa-solid:hover{
+    filter: brightness(40%);
+}
+
+.play-button{
+    font-size: 44px;
+    position: relative;
+    top: 3px;
+}
